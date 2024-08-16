@@ -1,4 +1,3 @@
-// tests/parser.test.js
 const { cronParser, parseField, main, formatOutput } = require('./index');
 const ranges = require('./config').ranges;
 
