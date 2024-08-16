@@ -25,7 +25,7 @@ extract the zip provided and get into the folder
 
 ### 2\. Install Dependencies
 
-Install the require dependencies using the following command.
+Install the required dependencies using the following command.
 
 `npm install`
 
