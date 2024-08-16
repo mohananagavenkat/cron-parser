@@ -1,0 +1,17 @@
+{
+  "name": "cron-parser",
+  "version": "1.0.0",
+  "description": "A cron parser package",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "cron-parser"
+  ],
+  "author": "Mohana Naga Venkat",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
