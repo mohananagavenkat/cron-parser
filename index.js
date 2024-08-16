@@ -29,7 +29,13 @@ const parseField = (field, range) => {
 };
 
 const cronParser = (stringToParse) => {
-  const [minuteField, hourField, dayOfMonthField, monthField, dayOfWeekField, command] = stringToParse.split(' ');
+  const fields = stringToParse.split(' ');
+
+  if (fields.length !== 6) {
+    console.error('Invalid cron string format. Expected 6 fields');
+  }
+
+  const [minuteField, hourField, dayOfMonthField, monthField, dayOfWeekField, command] = fields;
 
   const minute = parseField(minuteField, ranges.minute);
   const hour = parseField(hourField, ranges.hour);

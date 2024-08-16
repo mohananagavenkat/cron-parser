@@ -20,6 +20,11 @@ describe('Cron Parser', () => {
     expect(consoleErrorMock).toHaveBeenCalledWith('Please provide a cron string to parse');
   });
 
+  test('should log an error when extra fields are provided in input', () => {
+    cronParser('*/15 0 1,15 * 1-5 /usr/bin/find something');
+    expect(consoleErrorMock).toHaveBeenCalledWith('Invalid cron string format. Expected 6 fields');
+  });
+
   test('should parse minute field with */15', () => {
       const result = parseField('*/15', ranges.minute);
       expect(result).toEqual([0, 15, 30, 45]);
