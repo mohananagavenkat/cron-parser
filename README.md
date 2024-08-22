@@ -3,13 +3,21 @@ Cron Expression Parser
 
 This is a command-line application written in Node.js that parses a cron string and expands each field to show the times at which it will run. The parser supports the standard cron format with five time fields (minute, hour, day of month, month, and day of week) plus a command.
 
+Following are the special characters handled
+```
+WILDCARD(*): all possible values
+RANGE(-): range of values
+STEP(/): specifies the increment
+LIST(:): multiple values
+```
+
 Prerequisites
 -------------
 
 To run this application, the following need to be installed:
 
--   **Node.js**
--   **NPM**
+-   **Node.Js** (version > 18)
+-   **NPM** (version > 10)
 
 Setup Instructions
 ------------------

@@ -1,7 +1,9 @@
-const { cronParser, parseField, main, formatOutput } = require('./index');
-const ranges = require('./config').ranges;
+const { main } = require('./index');
+const { cronParser, parseField } = require('./src/parser');
+const { RANGES } = require('./constants');
+const { formatOutput } = require('./utils/formatOutput');
 
-describe('Cron Parser', () => {
+describe('Cron Expression Parser', () => {
 
   let consoleErrorMock;
 
@@ -25,32 +27,32 @@ describe('Cron Parser', () => {
   });
 
   test('should parse minute field with */15', () => {
-      const result = parseField('*/15', ranges.minute);
+      const result = parseField('*/15', RANGES.minute);
       expect(result).toEqual([0, 15, 30, 45]);
   });
 
   test('should parse minute field with 0-30/10', () => {
-    const result = parseField('0-30/10', ranges.minute);
+    const result = parseField('0-30/10', RANGES.minute);
     expect(result).toEqual([0, 10, 20, 30]);
   });
 
   test('should parse hour field with 0', () => {
-      const result = parseField('0', ranges.hour);
+      const result = parseField('0', RANGES.hour);
       expect(result).toEqual([0]);
   });
 
   test('should parse day of month field with 1,15', () => {
-      const result = parseField('1,15', ranges.dayOfMonth);
+      const result = parseField('1,15', RANGES.dayOfMonth);
       expect(result).toEqual([1, 15]);
   });
 
   test('should parse month field with *', () => {
-      const result = parseField('*', ranges.month);
+      const result = parseField('*', RANGES.month);
       expect(result).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
   });
 
   test('should parse day of week field with 1-5', () => {
-      const result = parseField('1-5', ranges.dayOfWeek);
+      const result = parseField('1-5', RANGES.dayOfWeek);
       expect(result).toEqual([1, 2, 3, 4, 5]);
   });
 
